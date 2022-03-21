@@ -6,7 +6,7 @@
   "scripts": {
     "prisma:config": "npx prisma migrate dev",
     "build": "tsc && yarn run prisma:config",
-    "start": "build && node dist/src/index.js",
+    "start": "yarn run build && node dist/src/index.js",
     "dev": "ts-node-dev src/index.ts",
     "generate": "ts-node-dev src/schema.ts"
   },
