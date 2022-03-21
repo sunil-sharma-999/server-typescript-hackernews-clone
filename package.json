@@ -4,8 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node dist/index.js",
-    "build": "tsc && node src/schema.ts",
+    "start": "tsc && yarn prisma migrate dev && node dist/index.js",
     "dev": "ts-node-dev src/index.ts",
     "generate": "ts-node-dev src/schema.ts"
   },
