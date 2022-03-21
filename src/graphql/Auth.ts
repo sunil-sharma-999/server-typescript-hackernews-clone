@@ -1,7 +1,7 @@
 import { extendType, nonNull, objectType, stringArg } from 'nexus';
 
 import argon from 'argon2';
-import jwt from 'jsonwebtoken';
+import { sign } from 'jsonwebtoken';
 import { APP_SECRET } from '../constants';
 
 export const authPayload = objectType({
@@ -34,7 +34,7 @@ export const AuthMutation = extendType({
             password,
           },
         });
-        const token = jwt.sign({ userId: user.id }, APP_SECRET!);
+        const token = sign({ userId: user.id }, APP_SECRET!);
         return {
           token,
           user,
@@ -60,7 +60,7 @@ export const AuthMutation = extendType({
         if (!valid) {
           throw new Error('Wrong Password');
         }
-        const token = jwt.sign({ userId: user.id }, APP_SECRET!);
+        const token = sign({ userId: user.id }, APP_SECRET!);
 
         return { token, user };
       },
