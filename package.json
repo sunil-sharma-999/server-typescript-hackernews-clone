@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "prisma:config": "npx prisma migrate dev",
+    "prisma:config": "npx prisma migrate dev && npx prisma generate",
     "build": "tsc && yarn run prisma:config",
     "start": "yarn run build && node dist/src/index.js",
     "dev": "ts-node-dev src/index.ts",
