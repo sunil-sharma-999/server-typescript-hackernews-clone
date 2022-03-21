@@ -6,6 +6,7 @@ import { context } from './context';
 
 export const server = new ApolloServer({
   schema,
+  introspection: true,
   plugins: [ApolloServerPluginLandingPageGraphQLPlayground],
   context,
 });
